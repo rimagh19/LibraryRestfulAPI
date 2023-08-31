@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="stylesheet" href="./CSS/libraries.css" />
+        <title>Libraries</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" />
+                Libraries
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./myLibrary.html">Home <span class="sr-only">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="./addBooks.html"> Add Book </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-dark" href="#"> Add Author </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="text-black-50 d-flex flex-column justify-content-center align-self-center align-items-center mt-4 main-holder" id="libs-container"></div>
+        <div class="text-black-50 d-flex flex-column justify-content-center align-self-center align-items-center mt-4 main-holder" id="add-container">
+            <form id="myAuthorForm" class="align-items-center justify-content-center align-self-center" onsubmit="postAuthor()">
+                <div class="row">
+                    <label for="name">Name</label>
+                    <input class="form-control form-control-sm" type="text" id="name" name="name" placeholder="Enter author Name" required />
+                </div>
+                <button type="submit" id="submitBook" class="btn btn-dark text-light w-100">Submit</button>
+                <p class="small text-sm-center">Want to add a library? <a class="text-primary" href="./myLibrary.html"> click here</a></p>
+            </form>
+        </div>
+
+        <div class="overlay" id="overlay">
+            <div class="modal" id="modal">
+                <p>Added Succesfull!</p>
+            </div>
+        </div>
+
+        <!--  Scripts -->
+        <script src="./js/authorsHandler.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    </body>
+</html>

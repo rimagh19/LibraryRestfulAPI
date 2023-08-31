@@ -24,13 +24,28 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-/** the database structure */
-const BookSchema = new mongoose_1.Schema({
-    title: { type: String, required: true },
-    author: { type: mongoose_1.Schema.Types.ObjectId, required: true, ref: 'Author' },
-    genre: { type: String, required: true }
+/** Schema */
+const LibrarySchema = new mongoose_1.Schema({
+    _id: {
+        type: mongoose_1.default.Schema.Types.ObjectId
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    books: [
+        {
+            type: mongoose_1.Schema.Types.ObjectId,
+            ref: 'Book',
+            required: true
+        }
+    ],
+    location: {
+        type: String,
+        required: true
+    }
 }, {
     timestamps: true
 });
-/**exports the Mongoose model for the 'Book' collection. It specifies that the model should implement the IBookModel interface and uses the BookSchema as the schema structure. */
-exports.default = mongoose_1.default.model('Book', BookSchema);
+/** Export Schema */
+exports.default = mongoose_1.default.model('Library', LibrarySchema);

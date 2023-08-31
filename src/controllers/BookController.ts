@@ -3,11 +3,12 @@ import mongoose from 'mongoose';
 import Book from '../models/BookModel';
 import Logging from '../library/logging';
 export const createBook = async (req: Request, res: Response, next: NextFunction) => {
-    const { title, author } = req.body;
+    const { title, author, genre } = req.body;
     const book = new Book({
         _id: new mongoose.Types.ObjectId(),
         title,
-        author
+        author,
+        genre
     });
     return book
         .save()

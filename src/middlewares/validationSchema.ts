@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import Logging from '../library/logging';
 import { IAuthor } from '../models/AuthorModel';
 import { IBookModel } from '../models/BookModel';
+import { ILibrary } from '../models/LibraryModel';
 
 export const ValidateSchema = (Schema: ObjectSchema) => {
     return async (req: Request, res: Response, next: NextFunction) => {
@@ -30,13 +31,35 @@ export const Schemas = {
             author: Joi.string()
                 .regex(/^[0-9a-fA-F]{24}$/)
                 .required(),
-            title: Joi.string().required()
+            title: Joi.string().required(),
+            genre: Joi.string().required()
         }),
         update: Joi.object<IBookModel>({
             author: Joi.string()
                 .regex(/^[0-9a-fA-F]{24}$/)
                 .required(),
-            title: Joi.string().required()
+            title: Joi.string().required(),
+            genre: Joi.string().required()
+        })
+    },
+    library: {
+        create: Joi.object<ILibrary>({
+            name: Joi.string().required(),
+            books: Joi.array().items(
+                Joi.string()
+                    .regex(/^[0-9a-fA-F]{24}$/)
+                    .required()
+            ),
+            location: Joi.string().required()
+        }),
+        update: Joi.object<ILibrary>({
+            name: Joi.string().required(),
+            books: Joi.array().items(
+                Joi.string()
+                    .regex(/^[0-9a-fA-F]{24}$/)
+                    .required()
+            ),
+            location: Joi.string().required()
         })
     }
 };

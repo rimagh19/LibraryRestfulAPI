@@ -17,11 +17,12 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const BookModel_1 = __importDefault(require("../models/BookModel"));
 const logging_1 = __importDefault(require("../library/logging"));
 const createBook = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const { title, author } = req.body;
+    const { title, author, genre } = req.body;
     const book = new BookModel_1.default({
         _id: new mongoose_1.default.Types.ObjectId(),
         title,
-        author
+        author,
+        genre
     });
     return book
         .save()

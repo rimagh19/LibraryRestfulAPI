@@ -42,13 +42,31 @@ exports.Schemas = {
             author: joi_1.default.string()
                 .regex(/^[0-9a-fA-F]{24}$/)
                 .required(),
-            title: joi_1.default.string().required()
+            title: joi_1.default.string().required(),
+            genre: joi_1.default.string().required()
         }),
         update: joi_1.default.object({
             author: joi_1.default.string()
                 .regex(/^[0-9a-fA-F]{24}$/)
                 .required(),
-            title: joi_1.default.string().required()
+            title: joi_1.default.string().required(),
+            genre: joi_1.default.string().required()
+        })
+    },
+    library: {
+        create: joi_1.default.object({
+            name: joi_1.default.string().required(),
+            books: joi_1.default.array().items(joi_1.default.string()
+                .regex(/^[0-9a-fA-F]{24}$/)
+                .required()),
+            location: joi_1.default.string().required()
+        }),
+        update: joi_1.default.object({
+            name: joi_1.default.string().required(),
+            books: joi_1.default.array().items(joi_1.default.string()
+                .regex(/^[0-9a-fA-F]{24}$/)
+                .required()),
+            location: joi_1.default.string().required()
         })
     }
 };
