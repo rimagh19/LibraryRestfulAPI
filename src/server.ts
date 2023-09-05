@@ -7,8 +7,10 @@ import Logging from './library/logging';
 import authorRoutes from './routers/authorRouter';
 import bookRoutes from './routers/bookRouter';
 import libraryRoutes from './routers/LibraryRouters';
+const serverless = require('serverless-http');
 
 const router = express();
+module.exports.handler = serverless(router);
 
 /** connect to mongoose */
 mongoose
