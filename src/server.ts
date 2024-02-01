@@ -10,7 +10,6 @@ import libraryRoutes from './routers/LibraryRouters';
 const serverless = require('serverless-http');
 
 const router = express();
-module.exports.handler = serverless(router);
 
 /** connect to mongoose */
 mongoose
